@@ -60,8 +60,9 @@ $RECYCLE.BIN/
 .vs/            # Visual Studio 2022 workspace files
 .vs2019/        # Visual Studio 2019 workspace files
 .vs2022/        # Visual Studio 2022 workspace files
-.bin/
-
+bin/
+obj/
+Properties/
 # User-specific Visual Studio 2022 files
 *.suo
 *.user
