@@ -62,7 +62,7 @@ $RECYCLE.BIN/
 .vs2022/        # Visual Studio 2022 workspace files
 bin/
 obj/
-Properties/
+Properties/	
 # User-specific Visual Studio 2022 files
 *.suo
 *.user
