@@ -1,6 +1,14 @@
+using StrojeviAPI.Business;
+using StrojeviAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSingleton<IDatabaseRepository, DatabaseRepository>();
+builder.Services.AddSingleton<MachineService>();
+builder.Services.AddSingleton<FailureService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
