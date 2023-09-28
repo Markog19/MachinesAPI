@@ -1,11 +1,11 @@
 ﻿using Dapper;
 using Npgsql;
-using StrojeviAPI.Models;
+using MachineMaintenanceWebAPI.Models;
 using System.Data;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace StrojeviAPI.Business
+namespace MachineMaintenanceWebAPI.Business
 {
     public class DatabaseRepository : IDatabaseRepository
     {

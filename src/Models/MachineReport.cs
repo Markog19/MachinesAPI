@@ -1,6 +1,6 @@
-﻿using StrojeviAPI.Controllers;
+﻿using MachineMaintenanceWebAPI.Controllers;
 
-namespace StrojeviAPI.Models
+namespace MachineMaintenanceWebAPI.Models
 {
     public class MachineReport
     {

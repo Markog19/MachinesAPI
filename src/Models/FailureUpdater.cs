@@ -1,4 +1,4 @@
-﻿namespace StrojeviAPI.Models
+﻿namespace MachineMaintenanceWebAPI.Models
 {
     public class FailureUpdater
     {

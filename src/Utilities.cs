@@ -1,6 +1,6 @@
-﻿using StrojeviAPI.Models;
+﻿using MachineMaintenanceWebAPI.Models;
 
-namespace StrojeviAPI
+namespace MachineMaintenanceWebAPI
 {
     public class Utilities
     {

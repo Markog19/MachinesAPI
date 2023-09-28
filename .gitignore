@@ -17,7 +17,7 @@ mono_crash.*
 .vscode/
 .idea/
 
-.packages/
+packages/
 # Rider
 .idea/
 
@@ -58,7 +58,7 @@ $RECYCLE.BIN/
 *.suo.lock
 
 # Visual Studio 2022 specific
-.vs/            # Visual Studio 2022 workspace files
+.vs/
 .vs2019/        # Visual Studio 2019 workspace files
 .vs2022/        # Visual Studio 2022 workspace files
 bin/
@@ -69,3 +69,4 @@ Properties/
 *.user
 *.userosscache
 *.sln.docstates
+*.sln

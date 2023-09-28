@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace StrojeviAPI.Models
+namespace MachineMaintenanceWebAPI.Models
 {
     public class Machine 
     {

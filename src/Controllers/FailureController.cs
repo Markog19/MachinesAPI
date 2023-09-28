@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StrojeviAPI.Business;
-using StrojeviAPI.Models;
-using StrojeviAPI.Services;
+using MachineMaintenanceWebAPI.Business;
+using MachineMaintenanceWebAPI.Models;
+using MachineMaintenanceWebAPI.Services;
 
-namespace StrojeviAPI.Controllers
+namespace MachineMaintenanceWebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -19,7 +19,7 @@ namespace StrojeviAPI.Controllers
             FailureService = failureService;
 
     }
-    [HttpPost]
+        [HttpPost]
         [Route("post")]
         public ActionResult CreateFailure([FromBody] List<Failure> failures)
         {

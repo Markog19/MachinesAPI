@@ -1,6 +1,6 @@
-﻿using StrojeviAPI.Models;
+﻿using MachineMaintenanceWebAPI.Models;
 
-namespace StrojeviAPI.Business
+namespace MachineMaintenanceWebAPI.Business
 {
     public interface IDatabaseRepository
     {

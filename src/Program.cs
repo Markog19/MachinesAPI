@@ -1,5 +1,5 @@
-using StrojeviAPI.Business;
-using StrojeviAPI.Services;
+using MachineMaintenanceWebAPI.Business;
+using MachineMaintenanceWebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

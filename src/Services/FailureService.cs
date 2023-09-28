@@ -1,8 +1,7 @@
-﻿using StrojeviAPI.Business;
-using StrojeviAPI.Models;
-using System.Xml.Linq;
+﻿using MachineMaintenanceWebAPI.Business;
+using MachineMaintenanceWebAPI.Models;
 
-namespace StrojeviAPI.Services
+namespace MachineMaintenanceWebAPI.Services
 {
         public class FailureService
         {

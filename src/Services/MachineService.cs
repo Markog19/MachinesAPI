@@ -1,9 +1,9 @@
-﻿using StrojeviAPI.Business;
-using StrojeviAPI.Models;
+﻿using MachineMaintenanceWebAPI.Business;
+using MachineMaintenanceWebAPI.Models;
 using System.Data;
 using System.Xml.Linq;
 
-namespace StrojeviAPI.Services
+namespace MachineMaintenanceWebAPI.Services
 {
     public class MachineService
     {
