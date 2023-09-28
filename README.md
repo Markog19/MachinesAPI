@@ -33,7 +33,7 @@ Creates a machine.
 Request:
 
  Method: POST
-URL:** `/machine/post`
+URL: `/machine/post`
 Body: JSON object of a `Machine`:
 
 ```json
