@@ -17,6 +17,7 @@ mono_crash.*
 .vscode/
 .idea/
 
+.packages/
 # Rider
 .idea/
 
