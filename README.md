@@ -41,7 +41,7 @@ Body: JSON object of a `Machine`:
     "Id": 1,
     "Name": "Machine1",
 }
-
+```
 Response:
 
     200 OK if the machine is created successfully.
