@@ -1,4 +1,4 @@
-Machine Maintenance Web API
+# Machine Maintenance Web API
 
 This is a README file for the Machine Maintenance Web API project, implemented in C# using PostgreSQL as the underlying database. This API is designed to facilitate the management of machines and their associated issues or faults.
 Table of Contents
@@ -13,7 +13,7 @@ Table of Contents
         Issues
     Notes
 
-Introduction
+# Introduction
 
 The Machine Maintenance Web API is built to support the monitoring and maintenance of machines and their related issues. It provides a set of RESTful endpoints to manage machines and issues without using the Entity Framework, instead opting for a micro ORM.
 Features
@@ -21,65 +21,214 @@ Features
 The API offers the following essential features:
 Machines
 
-    Add Machine
-        Endpoint: /machines/post
-        Method: POST
-        Description: Add a new machine to the database.
-        Constraints:
-            The machine must have a unique name.
+# API Documentation
 
-    Delete Machine
-        Endpoint: /machines/delete
-        Method: DELETE
-        Description: Delete a machine by its name.
 
-    Update Machine
-        Endpoint: /machines/put
-        Method: PUT
-        Description: Update machine information.
+## Create Machine
 
-    Retrieve Machine with Faults
-        Endpoint: /machines/getMachines
-        Method: GET
-        Description: Retrieve details of a machine, including its name, and all associated faults with the average duration of those faults.
+Endpoint:`POST /machine/post`
 
-Failures
+Creates a machine.
 
-    Add failure
-        Endpoint: /failure/post
-        Method: POST
-        Description: Add a new issue or fault.
-        Constraints:
-            The failure must have a name, machine name, description, priority, and start time.
-            An issue cannot be added if there is an active issue (unresolved fault) on the same machine.
+Request:
 
-    Delete failure
-        Endpoint: /failure/delete
-        Method: DELETE
-        Description: Delete an issue by its name.
+ Method: POST
+URL:** `/machine/post`
+Body: JSON object of a `Machine`:
 
-    Update failure
-        Endpoint: /failure/put
-        Method: PUT
-        Description: Update issue information.
+```json
+{
+    "Id": 1,
+    "Name": "Machine1",
+}
 
-    Retrieve failure
-        Endpoint: /failure/get
-        Method: GET
-        Description: Retrieve a list of all issues.
+Response:
 
-    Change Issue Status
-        Endpoint: /failure/status
-        Method: PUT
-        Description: Change the status of an issue (resolved or unresolved).
+    200 OK if the machine is created successfully.
+    400 Bad Request if there's an issue with the request.
 
-    Retrieve Top Issues
-        Endpoint: /failures/getFailures
-        Method: GET
-        Description: Retrieve a specified number of issues sorted by priority (low, medium, high) and then by start time (descending order) for pagination.
+## Delete Machine
 
+Endpoint: DELETE /machine/delete
+
+Deletes a machine by name.
+
+Request:
+
+    Method: DELETE
+    URL: /machine/delete
+    Body: string name: e.g. "Machine1"
+
+Response:
+
+    200 OK with the deleted machine if successful.
+    400 Bad Request if there's an issue with the request.
+
+## Update Machine
+
+Endpoint: PUT /machine/put
+
+Updates a machine's name.
+
+Request:
+
+    Method: PUT
+    URL: /machine/put
+    Body: JSON object with OldMachineName (string) and NewMachineName (string):
+
+json
+
+{
+    "OldMachineName": "Machine1",
+    "NewMachineName": "MachineNewName"
+}
+
+Response:
+
+    200 OK if the machine is updated successfully.
+    400 Bad Request if there's an issue with the request.
+
+## Get Machine
+
+Endpoint: GET /machine/get
+
+Retrieves a machine by name.
+
+Request:
+
+    Method: GET
+    URL: /machine/get
+    Body: string field: e.g. "Machine1"
+
+
+Response:
+
+    200 OK with the machine if found.
+    400 Bad Request if there's an issue with the request.
+
+## Create Failure
+
+Endpoint: POST /failure/post
+
+Creates a failure.
+
+Request:
+
+    Method: POST
+    URL: /failure/post
+    Body: JSON object of a Failure:
+
+json
+
+{
+        "Name": "Machine Defect 1111",
+        "MachineName": "Machine A",
+        "Priority": 3,
+        "StartTime": "2023-09-25T10:00:00",
+        "EndTime": "2023-09-25T12:00:00",
+        "Description": "This is defect 1 description.",
+        "IsRemoved": false
+}
+
+Response:
+
+    200 OK if the failure is created successfully.
+    400 Bad Request if there's an issue with the request.
+
+## Delete Failure
+
+Endpoint: DELETE /failure/delete
+
+Deletes a failure by name.
+
+Request:
+
+    Method: DELETE
+    URL: /failure/delete
+    Body: string field: e.g. "Failure1"
+
+
+Response:
+
+    200 OK with a success message if the failure is deleted successfully.
+    400 Bad Request if there's an issue with the request.
+
+## Update Failure
+
+Endpoint: PUT /failure/put
+
+Updates a failure's name.
+
+Request:
+
+    Method: PUT
+    URL: /failure/put
+    Body: JSON object with Failure (Failure object) and FailureName (string):
+
+json
+
+{
+    "Failure":{
+        "Name": "Machine Defect 1111",
+        "MachineName": "Machine A",
+        "Priority": 3,
+        "StartTime": "2023-09-25T10:00:00",
+        "EndTime": "2023-09-25T12:00:00",
+        "Description": "This is defect 1 description.",
+        "IsRemoved": false
+    },
+    "FailureName": "Machine Defect 1"
+    
+}
+
+Response:
+
+    200 OK if the failure is updated successfully.
+    400 Bad Request if there's an issue with the request.
+
+## Get Failure
+
+Endpoint: GET /failure/get
+
+Retrieves a failure by name.
+
+Request:
+
+    Method: GET
+    URL: /failure/get
+    Body: name string: e.g. "Failure1"
+
+
+Response:
+
+    200 OK with the failure if found.
+    400 Bad Request if there's an issue with the request.
+
+## Update Status
+
+Endpoint: PUT /failure/status
+
+Updates the status of a failure.
+
+Request:
+
+    Method: PUT
+    URL: /failure/status
+    Body: JSON object with FailureName (string) and NewStatus (boolean):
+
+json
+
+{
+    "FailureName": "Failure1",
+    "NewStatus": true
+}
+
+Response:
+
+    200 OK if the status is updated successfully.
+    400 Bad Request if there's an issue with the request.
 Notes
-Machines
+# Machines
 
     Machines must have unique names.
     No duplicate machine names are allowed.
