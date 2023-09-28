@@ -32,16 +32,17 @@ namespace MachineMaintenanceWebAPI.Services
             }
             public List<Failure> CheckFailures(List<Failure> failures)
             {
+                List<Failure> processedFailures = new List<Failure>();
                 foreach(var failure in failures)
                 {
                     var failureChecked = Utilities.ConvertToListFailure(DatabaseRepository.Read<Failure>(failure.Name)).FirstOrDefault();
-                    if(!failureChecked.IsRemoved) 
+                    if(failureChecked == null || failureChecked.IsRemoved) 
                     {
-                        failures.Remove(failure);
+                        processedFailures.Add(failure);
                     }
                 }
 
-                return failures;
+                return processedFailures;
             }
             public int CreateFailures(List<Failure> failures)
             {

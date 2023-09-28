@@ -29,9 +29,9 @@ namespace MachineMaintenanceWebAPI.Controllers
 
         [HttpDelete]
         [Route("delete")]
-        public ActionResult DeleteMachine([FromQuery] string name)
+        public ActionResult DeleteMachine([FromBody] string MachineName)
         {
-            var machine = MachineService.DeleteMachine(name);
+            var machine = MachineService.DeleteMachine(MachineName);
             return Ok(machine);
 
         }

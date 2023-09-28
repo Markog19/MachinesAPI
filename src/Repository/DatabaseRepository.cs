@@ -13,7 +13,7 @@ namespace MachineMaintenanceWebAPI.Business
 
         public DatabaseRepository()
         {
-            _dbConnection = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=12345678;Database=TestTask");
+            _dbConnection = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=12345678;Database=testtask");
             _dbConnection.Open();
         }
 
@@ -64,7 +64,7 @@ namespace MachineMaintenanceWebAPI.Business
             }
             else
             {
-                string query = "DELETE FROM public.\"Failure\" WHERE \"FailureName\" = @FailureName;";
+                string query = "DELETE FROM public.\"Failure\" WHERE \"Name\" = @FailureName;";
                 var status = _dbConnection.QueryFirstOrDefault<T>(query, new { FailureName = name });
                 _dbConnection.Close();
                 return status;
