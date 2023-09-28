@@ -6,7 +6,6 @@ namespace TestApi
     public class UnitTests
     {
         public readonly DatabaseRepository  databaseRepository = new DatabaseRepository();
-        // reorganize Tests folders
         [Fact]
         public void RepositoryLayerCreatesMachines()
         {
